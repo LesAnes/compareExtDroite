@@ -1,0 +1,47 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.blue {
+  text-decoration: none;
+  color: #064473;
+  transition: 0.4s;
+  padding: 3px;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+p {
+  text-align: center;
+}
+
+.spacing {
+  padding: 1rem;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: #06447348;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
