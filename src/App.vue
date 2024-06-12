@@ -59,6 +59,10 @@ nav a:first-of-type {
   border: 0;
 }
 
+header .wrapper {
+  margin-bottom: 2rem;
+}
+
 @media (min-width: 1024px) {
   header {
     display: flex;
@@ -74,6 +78,7 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    margin-bottom: 0;
   }
 
   nav {
