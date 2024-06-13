@@ -23,7 +23,7 @@ const router = createRouter({
       component: () => import('../views/AgricultureView.vue')
     },
     {
-      path: '/santé',
+      path: '/sante',
       name: 'santé',
       component: () => import('../views/SanteView.vue')
     },
@@ -43,6 +43,15 @@ const router = createRouter({
       component: () => import('../views/ExtremeGaucheView.vue')
     }
   ]
+})
+
+router.beforeEach((toRoute, fromRoute, next) => {
+  const routeNames = ['smic', 'retraite', 'agriculture', 'santé', 'taxer', 'gel', 'extreme-gauche']
+  if (toRoute.name === 'home') {
+    next({ name: routeNames[Math.floor(Math.random() * routeNames.length)] })
+  } else {
+    next()
+  }
 })
 
 export default router

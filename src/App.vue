@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+window.document.title = window.location.hostname.replace('.fr', '').split('-').map(word => `${word[0].toUpperCase()}${word.slice(1, word.length)}`).join(' ')
 </script>
 
 <template>
@@ -12,7 +14,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/smic">SMIC</RouterLink>
         <RouterLink to="/retraite">Retraite</RouterLink>
         <RouterLink to="/agriculture">Agriculture</RouterLink>
-        <RouterLink to="/santé">Santé</RouterLink>
+        <RouterLink to="/sante">Santé</RouterLink>
         <RouterLink to="/taxer">Taxer</RouterLink>
         <RouterLink to="/gel">Gel des prix</RouterLink>
         <RouterLink to="/extreme-gauche">Extrême gauche</RouterLink>
@@ -29,11 +31,6 @@ header {
   max-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
 nav {
   width: 100%;
   font-size: 12px;
@@ -42,7 +39,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: #2c3e50;
 }
 
 nav a.router-link-exact-active:hover {
@@ -52,7 +49,7 @@ nav a.router-link-exact-active:hover {
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  border-left: 1px solid rgba(60, 60, 60, 0.12);
 }
 
 nav a:first-of-type {
@@ -67,11 +64,7 @@ header .wrapper {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
+    padding-right: calc(160px / 2);
   }
 
   header .wrapper {
