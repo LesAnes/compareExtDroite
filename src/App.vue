@@ -2,7 +2,11 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
-window.document.title = window.location.hostname.replace('.fr', '').split('-').map(word => `${word[0].toUpperCase()}${word.slice(1, word.length)}`).join(' ')
+window.document.title = window.location.hostname
+  .replace('.fr', '')
+  .replace('.netlify.app', '')
+  .split('-')
+  .map(word => `${word[0].toUpperCase()}${word.slice(1, word.length)}`).join(' ')
 </script>
 
 <template>
