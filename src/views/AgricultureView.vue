@@ -4,7 +4,7 @@ import PlotTwist from '../components/PlotTwist.vue'
 
 <template>
   <div class="section-wrapper">
-    <h2>Forcer la grande distribution a donner des revenus décents aux agriculteurs</h2>
+    <h2>Forcer la grande distribution à acheter à des prix décents aux agriculteurs</h2>
     <PlotTwist />
 
     <div>
