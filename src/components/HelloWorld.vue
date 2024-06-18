@@ -1,14 +1,12 @@
 <script setup>
-
 </script>
 
 <template>
   <div class="greetings">
-    <h1>Tu l'as fait !</h1>
-    <h3>
-      Le RN est au porte du pouvoir
-    </h3>
-    <p>Pourquoi voter pour nous ?</p>
+    <h1>Bravo !</h1>
+    <h2>
+      Nous avons gagné les européennes, maintenant nous avons besoin de vous pour les législatives !
+    </h2>
   </div>
 </template>
 
@@ -28,6 +26,12 @@ h3 {
 .greetings h3,
 .greetings p {
   text-align: center;
+}
+
+.merdella {
+  margin-top: 1rem;
+  width: 100%;
+  border-radius: 4px;
 }
 
 @media (min-width: 1024px) {

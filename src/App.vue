@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 
 window.document.title = window.location.hostname
@@ -7,22 +7,14 @@ window.document.title = window.location.hostname
   .replace('.netlify.app', '')
   .split('-')
   .map(word => `${word[0].toUpperCase()}${word.slice(1, word.length)}`).join(' ')
+
+  const route = useRoute();
 </script>
 
 <template>
-  <header>
+  <header v-if="route.name === 'home'" :class="{ '-home': route.name === 'home' }">
     <div class="wrapper">
       <HelloWorld />
-
-      <nav>
-        <RouterLink to="/smic">SMIC</RouterLink>
-        <RouterLink to="/retraite">Retraite</RouterLink>
-        <RouterLink to="/agriculture">Agriculture</RouterLink>
-        <RouterLink to="/sante">Santé</RouterLink>
-        <RouterLink to="/taxer">Taxer</RouterLink>
-        <RouterLink to="/gel">Gel des prix</RouterLink>
-        <RouterLink to="/extreme-gauche">Extrême gauche</RouterLink>
-      </nav>
     </div>
   </header>
 
@@ -65,13 +57,13 @@ header .wrapper {
 }
 
 @media (min-width: 1024px) {
-  header {
+  header.-home {
     display: flex;
     place-items: center;
     padding-right: calc(160px / 2);
   }
 
-  header .wrapper {
+  header.-home .wrapper {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;

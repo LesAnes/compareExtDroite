@@ -1,46 +1,38 @@
 <script setup>
-import { onUnmounted, ref } from 'vue';
-import { filename } from 'pathe/utils'
-
-
-const glob = import.meta.glob('@/assets/fp-art-*.jpg', { eager: true })
-const images = Object.fromEntries(
-  Object.entries(glob).map(([key, value]) => [filename(key), value.default])
-)
-  
+import { onMounted, onUnmounted, ref } from 'vue';
+const props = defineProps(['timeoutMs'])
 let plotTwist = ref(false);
-const imageLinks = Object.values(images);
-let imageArt = imageLinks[Math.floor(Math.random() * imageLinks.length)]
 
 onUnmounted(() => {
   document.querySelector('body').classList.remove('-twisted')
 });
 
-setTimeout(() => {
-  plotTwist.value = true;
-  document.querySelector('body').classList.add('-twisted')
-  window.document.title = 'Front Populaire';
 
-  let link = document.querySelector("link[rel~='icon']");
-  if (!link) {
-    link = document.createElement('link');
-    link.rel = 'icon';
-    document.head.appendChild(link);
-  }
-  link.href = '/favicon2.ico';
-}, 2000)
+onMounted(() => {
+  setTimeout(() => {
+    plotTwist.value = true;
+    document.querySelector('body').classList.add('-twisted')
+    window.document.title = 'Front Populaire';
+
+    let link = document.querySelector("link[rel~='icon']");
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.href = '/favicon2.ico';
+  }, props.timeoutMs || 2000)
+});
 </script>
 
 <template>
   <Transition>
-    <div v-if="plotTwist">
-      <h2 class="spacing"><slot>Le Front Populaire s'engage POUR</slot></h2>
+    <div v-if="plotTwist" class="plot-section">
+      <h2 class="spacing">Le Front Populaire s'engage POUR</h2>
       <div class="spacing img">
-        <img alt="Front populaire logo" class="logo" src="@/assets/logo.png" />
+        <img alt="Front populaire logo" class="logo" src="@/assets/logo1.png" />
       </div>
-      <div class="spacing img">
-        <img alt="Front populaire img" class="logo" :src="imageArt" />
-      </div>
+      <slot></slot>
     </div>
   </Transition>
 </template>
@@ -54,12 +46,27 @@ h2 {
   text-align: center;
 }
 
+.plot-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .img {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .logo {
   width: 200px;
 }
+
+@media (min-width: 1024px) {
+  .logo {
+    width: 400px;
+  }
+}
+
 </style>
