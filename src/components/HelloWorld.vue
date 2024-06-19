@@ -1,6 +1,6 @@
 <script setup>
   import { ref } from 'vue';
-  const falseFlag = ref(window.location.hostname.startsWith('stop-'));
+  const falseFlag = ref(!window.location.hostname.startsWith('jevotequoi'));
 </script>
 
 <template>
