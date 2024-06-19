@@ -1,12 +1,22 @@
 <script setup>
+  import { ref } from 'vue';
+  const falseFlag = ref(window.location.hostname.startsWith('stop-'));
 </script>
 
 <template>
   <div class="greetings">
-    <h1>Bravo !</h1>
-    <h2>
-      Nous avons gagné les européennes, maintenant nous avons besoin de vous pour les législatives !
-    </h2>
+    <template v-if="falseFlag">
+      <h1>Bravo !</h1>
+      <h2>
+        Nous avons gagné les européennes, maintenant nous avons besoin de vous pour les législatives !
+      </h2>
+    </template>
+    <template v-else>
+      <h1>Aller voter ?</h1>
+      <h2>
+        Oui, mais pour qui ?
+      </h2>
+    </template>
   </div>
 </template>
 
