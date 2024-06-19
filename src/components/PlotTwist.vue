@@ -28,11 +28,10 @@ onMounted(() => {
 <template>
   <Transition>
     <div v-if="plotTwist" class="plot-section">
-      <h2 class="spacing">Le Front Populaire s'engage POUR</h2>
-      <div class="spacing img">
+      <h2 class="section">Le Front Populaire s'engage POUR</h2>
+      <div class="section img">
         <img alt="Front populaire logo" class="logo" src="@/assets/logo1.png" />
       </div>
-      <slot></slot>
     </div>
   </Transition>
 </template>
@@ -44,6 +43,10 @@ h2 {
   border-radius: 3px;
   font-weight: 900;
   text-align: center;
+}
+
+.section {
+  margin-top: 1rem;
 }
 
 .plot-section {

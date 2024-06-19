@@ -41,10 +41,6 @@ body.-twisted a {
   font-weight: 500;
 }
 
-.spacing {
-  margin: 0.875rem;
-}
-
 .section-wrapper {
   display: flex;
   flex-direction: column;

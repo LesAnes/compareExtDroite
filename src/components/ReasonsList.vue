@@ -20,20 +20,30 @@ onMounted(() => {
 
 <template>
   <TransitionGroup name="list" tag="ul">
-    <li v-for="reason of reasons" v-bind:key="reason">
-      <span>{{ reason }}</span>
+    <li v-for="reason of reasons" v-bind:key="reason[0]">
+      <div>
+        <span>{{ reason[0] }}</span>
+        <a class="source" v-if="reason.length > 1" :href="reason[1]" target="_blank">source</a>
+      </div>
     </li>
   </TransitionGroup>
 </template>
 
 <style scoped>
 ul {
-  width: fit-content;
+  width: 100%;;
+}
+
+ul > li > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .list-enter-active,
 .list-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in;
 }
 .list-enter-from,
 .list-leave-to {

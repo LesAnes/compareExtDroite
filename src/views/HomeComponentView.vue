@@ -12,6 +12,7 @@
       <li><RouterLink to="/service-publics">Services Publics</RouterLink></li>
       <li><RouterLink to="/agriculture">Agriculture</RouterLink></li>
       <li><RouterLink to="/travail">Travail</RouterLink></li>
+      <li><RouterLink to="/logement">Logement</RouterLink></li>
     </ul>
   </div>
 </template>

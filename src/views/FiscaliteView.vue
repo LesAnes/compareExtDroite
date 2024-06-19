@@ -7,10 +7,10 @@ import PlotTwist from '../components/PlotTwist.vue'
 import SectionElement from '../components/SectionElement.vue'
 
 const baseReasons = ref([
-  "Rétablissement de l'ISF pour taxer les milliardaires",
-  "Taxe sur les superprofits",
-  "Taxe sur les revenus supérieurs à 3 millions d'euros",
-  "Augmentation des moyens pour lutter contre la fraude fiscale"
+  ["Rétablissement de l'ISF pour taxer les milliardaires", 'https://datan.fr/votes/legislature-16/vote_325'],
+  ["Taxe sur les superprofits", 'https://datan.fr/votes/legislature-16/vote_105'],
+  ["Taxe sur les revenus supérieurs à 3 millions d'euros"],
+  ["Augmentation des moyens pour lutter contre la fraude fiscale", 'https://datan.fr/votes/legislature-15/vote_1166'],
 ])
 </script>
 
@@ -23,7 +23,7 @@ const baseReasons = ref([
 
       <ReasonsList :baseReasons="baseReasons"/>
 
-      <PlotTwist :timeoutMs="delayMs * baseReasons.length" />
+      <PlotTwist :timeoutMs="delayMs * (baseReasons.length + 1)" />
     </SectionElement>
   </div>
 </template>
